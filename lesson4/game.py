@@ -1,20 +1,20 @@
-#! pgzrun
+import pgzrun
 import pygame
-from time import clock as time
+#from time import clock as time
 
 WIDTH = 800
 HEIGHT = 600
-LEAP_FRAME_DELAY = 0.1
+LEAP_FRAME_DELAY = 0.1#跳跃帧延迟
 MAX_ROWS = 5
 MAX_COLS = 6
 
-def scale(actor, factor):
+def scale(actor, factor):#规模 策略这个可以略！
     rect = actor._surf.get_rect()
     new_w = int(rect.width * factor)
     new_h = int(rect.height * factor)
-    actor._surf = pygame.transform.smoothscale(actor._surf, (new_w, new_h))
+    actor._surf = pygame.transform.smoothscale(actor._surf, (new_w, new_h))#使改变，平滑刻度
     actor.width, actor.height = actor._surf.get_size()
-    actor._calc_anchor()
+    actor._calc_anchor()#计算 锚
 
 class Frog(Actor):
     def __init__(self):
@@ -44,7 +44,7 @@ class Frog(Actor):
 
 class Pond(object):
     def __init__(self):
-        self.lilypads = []
+        self.lilypads = []#睡莲
         for y in range(MAX_ROWS):
             row = []
             for x in range(MAX_COLS):
@@ -56,7 +56,7 @@ class Pond(object):
             self.lilypads.append(row)
 
     def draw(self, frog):
-        for row in self.lilypads:
+        for row in self.lilypads:#技法晕
             for col in row:
                 col.draw()
 
@@ -76,3 +76,5 @@ def update():
 def draw():
     screen.clear()
     pond.draw(frog)
+
+pgzrun.go()

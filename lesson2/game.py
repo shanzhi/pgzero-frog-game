@@ -1,4 +1,5 @@
-#! pgzrun
+import pgzrun
+
 WIDTH = 800
 HEIGHT = 600
 
@@ -18,3 +19,5 @@ def update():
 def draw():
     screen.clear()
     frog.draw()
+
+pgzrun.go()

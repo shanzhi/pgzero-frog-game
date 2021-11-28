@@ -1,4 +1,4 @@
-#! pgzrun
+import pgzrun
 import pygame
 
 WIDTH = 800
@@ -35,3 +35,5 @@ def update():
 def draw():
     screen.clear()
     frog.draw()
+
+pgzrun.go()

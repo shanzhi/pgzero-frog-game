@@ -1,4 +1,4 @@
-#! pgzrun
+import pgzrun
 import pygame
 from time import time
 from random import random, randint
@@ -19,7 +19,7 @@ def scale(actor, factor):
     actor.center = (actor.x, actor.y)
     actor._calc_anchor()
 
-def restore_surface(actor, orig_surf):
+def restore_surface(actor, orig_surf):#恢复 表面 新变化
     actor._surf = orig_surf
     actor.width, actor.height = actor._surf.get_size()
     actor.center = (actor.x, actor.y)
@@ -62,12 +62,12 @@ class Frog(Actor):
 
 class Lilypad(Actor):
     DECAY_SCALES = [0.80, 0.70, 0.60, 0.50, 0.40, 0.30, 0]
-    FINAL_DECAY = len(DECAY_SCALES)-1
+    FINAL_DECAY = len(DECAY_SCALES)-1#最终的 衰退
 
     def __init__(self, image):
         super(Lilypad, self).__init__(image)
-        self.orig_surf = self._surf
-        self.delay_rate = 0.5 + (random() * 3)
+        self.orig_surf = self._surf#原
+        self.delay_rate = 0.5 + (random() * 3)#速度
         self.reset_rate = 1.0 + (random() * 5)
         self.decay_pos = randint(0, Lilypad.FINAL_DECAY)
         self.update()
@@ -79,7 +79,7 @@ class Lilypad(Actor):
 
     def update(self):
         if self.decay_pos == Lilypad.FINAL_DECAY:
-            self.state = 'missing'
+            self.state = 'missing'#丢失的
             clock.schedule(self.reset, self.reset_rate)
         else:
             self.decay_pos += 1
@@ -87,7 +87,7 @@ class Lilypad(Actor):
             if self.decay_pos == Lilypad.FINAL_DECAY:
                 self.state = 'missing'
             else:
-                self.state = 'available'
+                self.state = 'available'#可获得的 看不懂的骚操作
 
             clock.schedule(self.update, self.delay_rate)
 
@@ -130,3 +130,5 @@ def update():
 def draw():
     screen.clear()
     pond.draw(frog)
+
+pgzrun.go()

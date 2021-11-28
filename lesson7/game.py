@@ -1,4 +1,4 @@
-#! pgzrun
+import pgzrun
 import pygame
 
 from time import time
@@ -164,7 +164,7 @@ class Pond(object):
             self.frog.jump_sound.stop()
             sounds.load('lose').play()
         elif lily.state == 'rock':
-            self.frog.image = 'smallicon_frog'
+            self.frog.image = 'smallicon_frog'#小图标
             self.is_running = False
             self.end_state = 'win'
             self.frog.jump_sound.stop()
@@ -202,3 +202,5 @@ def update():
 def draw():
     screen.clear()
     pond.draw()
+
+pgzrun.go()

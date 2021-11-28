@@ -1,4 +1,5 @@
-#! pgzrun
+import pgzrun
+
 WIDTH = 800
 HEIGHT = 600
 
@@ -8,3 +9,5 @@ frog.pos = 100, HEIGHT-100
 def draw():
     screen.clear()
     frog.draw()
+
+pgzrun.go()

@@ -1,4 +1,4 @@
-#! pgzrun
+import pgzrun
 import pygame
 from time import time
 from random import random, randint
@@ -61,7 +61,7 @@ class Frog(Actor):
 
         self.key_pressed = None
 
-class Rock(Actor):
+class Rock(Actor):#岩石
     def __init__(self, image):
         super(Rock, self).__init__(image)
         self.orig_surf = self._surf
@@ -184,3 +184,5 @@ def update():
 def draw():
     screen.clear()
     pond.draw()
+
+pgzrun.go()

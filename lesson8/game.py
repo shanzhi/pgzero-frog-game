@@ -1,9 +1,9 @@
-#! pgzrun
+import pgzrun
 import pygame
 
 from time import time
 from random import random, randint
-from pgzero.constants import keys
+from pgzero.constants import keys#常数
 
 WIDTH = 800
 HEIGHT = 600
@@ -257,3 +257,5 @@ def update():
 def draw():
     screen.clear()
     pond.draw()
+
+pgzrun.go()
