@@ -12,7 +12,7 @@ MAX_ROWS = 5
 MAX_COLS = 6
 ROCK_POS = (MAX_COLS-1, MAX_ROWS-1)
 
-def scale(actor, factor):
+def scale(actor, factor):#很专业，特无趣
     surf = actor.orig_surf or actor._surf
     rect = surf.get_rect()
     new_w = int(rect.width * factor)
@@ -76,7 +76,7 @@ class Rock(Actor):
         scale(self, 0.75)
 
 class Lilypad(Actor):
-    DECAY_SCALES = [0.80, 0.70, 0.60, 0.50, 0.40, 0.30, 0]
+    DECAY_SCALES = [0.80, 0.70, 0.60, 0.50, 0.40, 0.30]
     FINAL_DECAY = len(DECAY_SCALES)-1
 
     def __init__(self, image, is_initial, pond):
