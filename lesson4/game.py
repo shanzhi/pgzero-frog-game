@@ -26,7 +26,7 @@ class Frog(Actor):
 
     def update(self):
         if keyboard.right:
-            if self.pond_pos[0] + 1 < MAX_COLS:
+            if self.pond_pos[0] + 1 < MAX_COLS:#这儿很细致
                 self.pond_pos = self.pond_pos[0] + 1, self.pond_pos[1]
                 self.jump('frog_right')
         elif keyboard.left:
